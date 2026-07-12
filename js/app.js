@@ -1,5 +1,5 @@
 
-  const LEAD_ENDPOINT = 'https://osnova-telegram.mukhamadievaalfia.workers.dev';
+  const LEAD_ENDPOINT =   "https://osnova-telegram.site-sd.workers.dev";
   const TEACHER_PHONE = '+79874230130';
   const input = document.getElementById('phoneInput');
   const form = document.getElementById('leadForm');
