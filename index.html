@@ -19,7 +19,8 @@
 <header class="topbar">
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="ЦОР ОСНОВА"><img src="assets/logo-symbol.png" alt=""><span>ЦОР ОСНОВА</span></a>
-    <nav class="menu" aria-label="Навигация">
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="menu" id="mainMenu" aria-label="Навигация">
       <a class="pill" href="#goal">Выбрать цель</a><a class="pill" href="#for">Для кого</a><a class="pill" href="#task">Пример задания</a><a class="pill" href="#about">О преподавателе</a><a class="pill" href="#format">Формат</a><a class="pill" href="#contacts">Контакты</a><a class="pill phone" href="tel:+79874230130">+7 987 423-01-30</a>
     </nav>
   </div>
@@ -35,7 +36,7 @@
         <h2 class="form-title">Начните с понятного плана</h2>
         <p class="form-sub">Оставьте номер — преподаватель подскажет, какой формат занятий подойдёт именно вам.</p>
         <form class="lead-form" id="leadForm">
-          <input class="phone-input" id="phoneInput" inputmode="numeric" autocomplete="tel" value="+7" aria-label="Номер телефона" />
+          <input class="phone-input" id="phoneInput" inputmode="tel" autocomplete="tel" enterkeyhint="send" value="+7" aria-label="Номер телефона" />
           <button class="submit" type="submit">Получить<br>консультацию</button>
         </form>
         <div class="status" id="status"></div>
@@ -55,8 +56,9 @@
   <section id="format"><div class="wrap"><div class="section-kicker">Формат</div><h2 class="section-title">Как можно заниматься</h2><div class="format"><article class="big-card"><h3>Онлайн</h3><p>Занятия по России: удобно для школьников и студентов из разных городов.</p></article><article class="big-card"><h3>Очно с выездом</h3><p>Для учеников в Нижнекамске — формат обсуждается индивидуально.</p></article><article class="big-card"><h3>Пробное занятие</h3><p>Познакомиться с преподавателем, попробовать формат занятия и определить дальнейший план обучения.</p></article><article class="big-card"><h3>Разовая консультация</h3><p>Можно разобрать одну тему, задание или понять, с чего начать.</p></article></div></div></section>
 
   <section id="contacts"><div class="wrap contact"><div><div class="section-kicker">Контакты</div><h2>Связаться и обсудить занятие</h2><p>Можно позвонить, написать в MAX или на электронную почту.</p></div><div class="contact-grid"><a class="contact-btn" href="tel:+79874230130">Позвонить<span>+7 987 423-01-30</span></a><a class="contact-btn" id="maxLink" href="max://user/+79874230130">Написать<span>MAX</span></a><a class="contact-btn" href="mailto:osnowa-ru@yandex.ru">Электронная почта<span>osnowa-ru@yandex.ru</span></a></div></div></section>
-</main><footer class="footer">ЦОР ОСНОВА · Черчение / Инженерная графика</footer></div>
+</main><a class="mobile-cta" href="#top" id="mobileCta">Получить консультацию</a><footer class="footer">ЦОР ОСНОВА · Черчение / Инженерная графика</footer></div>
 <div class="modal" id="setupModal"><div class="modal-card"><h3>Заявка готова, но Telegram ещё не подключён</h3><p>Чтобы номер реально приходил Фариде в Telegram, нужно вставить адрес Cloudflare Worker в строку <code>LEAD_ENDPOINT</code> в файле сайта.</p><p>Пока можно связаться через кнопки в блоке контактов.</p><button id="closeModal">Понятно</button></div></div>
+<script src="js/header.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

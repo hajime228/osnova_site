@@ -1,1 +1,84 @@
-/* Responsive rules are included in css/style.css to keep layout identical to v14. */
+/* Mobile and tablet adaptation */
+.menu-toggle{display:none;width:46px;height:46px;border:1.5px solid #111;border-radius:50%;background:#fff;align-items:center;justify-content:center;flex-direction:column;gap:5px;cursor:pointer;padding:0;flex:0 0 auto}
+.menu-toggle span{width:20px;height:2px;background:#111;border-radius:2px;transition:.2s}
+.mobile-cta{display:none}
+
+@media (max-width: 900px){
+  body{padding-top:72px;font-weight:600}
+  .page{overflow:visible}
+  .wrap{width:min(100% - 28px,1280px)}
+  .topbar{height:72px}
+  .nav{height:72px;padding:0;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:12px}
+  .brand{min-width:0;margin-right:0;gap:10px;max-width:calc(100% - 62px)}
+  .brand img{width:40px;height:40px}
+  .brand span{font-size:20px;line-height:1;transform:none;overflow:hidden;text-overflow:ellipsis}
+  .menu-toggle{display:flex}
+  .menu{position:fixed;top:72px;left:0;right:0;width:100%;margin:0;padding:16px 18px 22px;display:grid;grid-template-columns:1fr 1fr;gap:10px;background:rgba(255,255,255,.98);border-bottom:1px solid var(--line);box-shadow:0 18px 30px rgba(0,0,0,.10);transform:translateY(-130%);opacity:0;pointer-events:none;transition:.25s ease;overflow:visible;z-index:9998}
+  .menu.open{transform:translateY(0);opacity:1;pointer-events:auto}
+  .pill{height:50px;width:100%;font-size:14px;padding:0 12px;border-width:1.5px}
+  .pill.phone{grid-column:1 / -1}
+  .menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .menu-toggle.open span:nth-child(2){opacity:0}
+  .menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  .hero{margin-top:14px;margin-bottom:30px}
+  .hero-card{min-height:auto;border-radius:22px;padding:34px 22px 28px;overflow:hidden}
+  .hero-card:before{opacity:.22}
+  .hero-card:after{right:-180px;top:180px;width:430px;height:430px}
+  .hero-content{max-width:none}
+  .eyebrow{font-size:18px;margin-bottom:16px}
+  .center-name{font-size:24px;line-height:1.06;margin-bottom:14px;max-width:92%}
+  .h1{font-size:clamp(38px,10vw,50px);line-height:.98;letter-spacing:-1.8px;margin-bottom:20px;max-width:94%}
+  .lead{font-size:17px;line-height:1.46;margin-bottom:28px;max-width:94%;font-weight:650}
+  .form-title{font-size:24px}
+  .form-sub{font-size:15px;line-height:1.45}
+  .lead-form{display:grid;grid-template-columns:1fr;gap:12px;max-width:none}
+  .phone-input,.submit{width:100%;height:62px;border-radius:14px}
+  .phone-input{font-size:23px;padding:0 18px}
+  .submit{font-size:19px}
+  .submit br{display:none}
+  .hero-logo{right:-95px;top:250px;width:300px;height:300px;opacity:.20;pointer-events:none}
+
+  section{padding:36px 0}
+  .section-kicker{font-size:13px;margin-bottom:8px}
+  .section-title{font-size:36px;line-height:1.04;letter-spacing:-1.2px;margin-bottom:20px}
+  .choices,.audience,.portfolio,.format{grid-template-columns:1fr;gap:14px}
+  .choice,.big-card,.fact{border-radius:20px;padding:22px;min-height:0}
+  .choice h3{font-size:23px}
+  .choice p,.big-card p,.fact{font-size:16px;line-height:1.5}
+  .big-card h3{font-size:26px}
+  .fact b{font-size:21px}
+
+  .task{grid-template-columns:1fr;gap:22px;padding:26px 20px;border-radius:22px}
+  .task h2{font-size:36px;line-height:1.05}
+  .task p{font-size:16px}
+  .slides{padding:8px;border-radius:16px}
+  .slide-tabs{overflow-x:auto;padding-bottom:2px}
+  .tab{flex:0 0 auto}
+
+  .contact{grid-template-columns:1fr;gap:24px;padding:30px 20px;border-radius:22px}
+  .contact h2{font-size:38px}
+  .contact p{font-size:17px}
+  .contact-grid{grid-template-columns:1fr;gap:10px}
+  .contact-btn{min-height:76px;border-radius:15px;font-size:20px;padding:16px}
+  .footer{padding:28px 18px 92px;font-size:14px}
+
+  .mobile-cta{display:flex;position:fixed;left:14px;right:14px;bottom:14px;height:58px;align-items:center;justify-content:center;background:linear-gradient(180deg,#fb352e,#df201b);color:#fff;border-radius:16px;font-size:18px;font-weight:900;z-index:9997;box-shadow:0 14px 36px rgba(232,40,34,.34)}
+}
+
+@media (max-width: 520px){
+  .menu{grid-template-columns:1fr}
+  .pill.phone{grid-column:auto}
+  .brand span{font-size:18px}
+  .hero-card{padding:28px 18px 24px}
+  .center-name{font-size:21px}
+  .h1{font-size:38px}
+  .hero-logo{right:-120px;top:280px;width:280px;height:280px}
+  .section-title{font-size:32px}
+  .task h2{font-size:32px}
+  .contact h2{font-size:34px}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
