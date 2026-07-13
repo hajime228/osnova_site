@@ -56,4 +56,3 @@
   closeModal.addEventListener('click',()=>modal.classList.remove('open'));
   modal.addEventListener('click',(e)=>{ if(e.target===modal) modal.classList.remove('open') });
   document.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => { document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); taskImg.src = btn.dataset.slide === 'solution' ? 'assets/task-solution.png' : 'assets/task-given.png'; }));
-  document.getElementById('maxLink').addEventListener('click', (e)=>{ setTimeout(()=>{ window.location.href='https://web.max.ru/'; }, 700); });
