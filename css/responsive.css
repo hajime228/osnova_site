@@ -82,3 +82,22 @@
 @media (prefers-reduced-motion: reduce){
   *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
+
+
+@media (max-width: 900px){
+  .articles-head{align-items:flex-start;flex-direction:column;margin-bottom:20px}
+  .articles-all{width:100%;justify-content:center;text-align:center}
+  .article-grid{grid-template-columns:1fr}
+  .articles-intro{font-size:16px}
+  .article-card h3{font-size:23px}
+  .articles-page,.article-page{padding-top:34px}
+  .articles-hero h1{font-size:43px;letter-spacing:-1.5px}
+  .articles-hero p{font-size:17px}
+  .article-header h1{font-size:40px;letter-spacing:-1.4px}
+  .article-content{font-size:17px;line-height:1.7}
+  .article-content h2{font-size:29px}
+  .article-hero-image{border-radius:18px}
+  .article-cta{padding:26px 20px}
+}
+
+@media (max-width: 640px){.article-nav-inline{margin-bottom:22px;font-size:14px;gap:8px}}
