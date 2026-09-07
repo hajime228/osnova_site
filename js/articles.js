@@ -77,7 +77,12 @@
   function card(a){
     const image=safeUrl(a.image);
     const cover = image ? `<img src="${esc(image)}" alt="${esc(a.title||'')}">` : '';
-    return `<article class="article-card"><a class="article-cover" href="article.html?slug=${encodeURIComponent(a.slug)}">${cover}</a><div class="article-body"><span class="article-category">${esc(a.category || 'Статья')}</span><h3><a href="article.html?slug=${encodeURIComponent(a.slug)}">${esc(a.title)}</a></h3><p>${esc(a.excerpt || '')}</p><div class="article-meta"><span>${esc(dateRu(a.date))}</span><span>${esc(a.readTime || '')}</span></div><a class="article-link" href="article.html?slug=${encodeURIComponent(a.slug)}">Читать →</a></div></article>`;
+    const href=`article.html?slug=${encodeURIComponent(a.slug)}`;
+    const featured=a.slug==='cherchenie-i-inzhenernaya-grafika';
+    if(featured){
+      return `<article class="article-card article-card--featured"><a class="article-cover" href="${href}">${cover}</a><div class="article-body"><div class="article-feature-kicker"><span class="article-feature-badge">Новая статья</span><span class="article-category">${esc(a.category || 'Статья')}</span></div><h3><a href="${href}">${esc(a.title)}</a></h3><p>${esc(a.excerpt || '')}</p><div class="article-meta"><span>${esc(dateRu(a.date))}</span><span>${esc(a.readTime || '')}</span></div><a class="article-link article-link--button" href="${href}">Читать статью →</a></div></article>`;
+    }
+    return `<article class="article-card"><a class="article-cover" href="${href}">${cover}</a><div class="article-body"><span class="article-category">${esc(a.category || 'Статья')}</span><h3><a href="${href}">${esc(a.title)}</a></h3><p>${esc(a.excerpt || '')}</p><div class="article-meta"><span>${esc(dateRu(a.date))}</span><span>${esc(a.readTime || '')}</span></div><a class="article-link" href="${href}">Читать →</a></div></article>`;
   }
   function loadArticles(){
     return new Promise(resolve => {

@@ -10,6 +10,7 @@
   <meta property="og:title" content="ЦОР ОСНОВА — Черчение / Инженерная графика" />
   <meta property="og:description" content="Индивидуальные занятия по черчению и инженерной графике для школьников и студентов." />
   <meta property="og:image" content="assets/og-image.png" />
+  <script src="js/theme.js"></script>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
   <link rel="stylesheet" href="css/animations.css" />
@@ -19,10 +20,11 @@
 <header class="topbar">
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="ЦОР ОСНОВА"><img src="assets/logo-symbol.png" alt=""><span>ЦОР ОСНОВА</span></a>
-    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="menu" id="mainMenu" aria-label="Навигация">
       <a class="pill" href="#goal">Выбрать цель</a><a class="pill" href="#for">Для кого</a><a class="pill" href="#task">Пример задания</a><a class="pill" href="#about">О преподавателе</a><a class="pill" href="#articles">Статьи</a><a class="pill" href="#contacts">Контакты</a><a class="pill phone" href="tel:+79874230130">+7 987 423-01-30</a>
     </nav>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Включить тёмную тему" title="Тёмная тема"><img class="theme-icon" src="assets/icon-moon.png" alt="" aria-hidden="true"></button>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 <main id="top">
@@ -49,7 +51,7 @@
 
   <section id="for"><div class="wrap"><div class="section-kicker">Для кого</div><h2 class="section-title">Школьникам и студентам</h2><div class="audience"><article class="big-card"><h3>Школьникам любых классов</h3><p>Знакомство с черчением, развитие пространственного мышления и спокойная проверка интереса к инженерным направлениям — без давления и лишнего пафоса.</p></article><article class="big-card"><h3>Студентам колледжей и вузов</h3><p>Помощь с инженерной графикой, начертательной геометрией, компьютерной графикой и учебными заданиями.</p></article></div></div></section>
 
-  <section id="task"><div class="wrap task"><div><div class="section-kicker">Пример разбираемого задания</div><h2>Не просто ответ — понятная логика построения</h2><p>На занятиях разбираются реальные учебные задачи: что дано, что нужно построить, где обычно возникают ошибки и как проверить результат.</p></div><div class="slides"><div class="slide-tabs"><button class="tab active" data-slide="given">Дано</button><button class="tab" data-slide="solution">Решение</button></div><img id="taskImg" src="assets/task-given.png" alt="Пример задания из презентации"></div></div></section>
+  <section id="task"><div class="wrap task"><div><div class="section-kicker">Пример разбираемого задания</div><h2>Не просто ответ — понятная логика построения</h2><p>На занятиях разбираются реальные учебные задачи: что дано, что нужно построить, где обычно возникают ошибки и как проверить результат.</p></div><div class="slides"><div class="slide-tabs"><button class="tab active" data-slide="given">Дано</button><button class="tab" data-slide="solution">Решение</button></div><div class="task-media"><video id="taskVideo" src="assets/task-given.mp4" muted playsinline preload="auto" poster="assets/task-given.png" aria-label="Анимация условия задачи"></video><button class="task-skip" id="taskSkip" type="button" aria-label="Показать итоговый кадр" title="Показать итог"><svg class="task-skip-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 5.25 10.5 12l-7 6.75V5.25Zm7.25 0L17.75 12l-7 6.75V5.25ZM19 5.25h2v13.5h-2V5.25Z" fill="currentColor"/></svg></button></div></div></div></section>
 
   <section id="about"><div class="wrap"><div class="section-kicker">О преподавателе</div><h2 class="section-title">Мухамадиева Фарида Ибрагимовна</h2><div class="portfolio"><article class="fact"><b>Преподаватель инженерной и компьютерной графики</b>Опыт преподавания инженерной графики, черчения, основ начертательной геометрии и компьютерной инженерной графики.</article><article class="fact"><b>Методические материалы</b>Разработка календарно-тематических планов, презентаций, учебных пособий и материалов для занятий.</article><article class="fact"><b>Программы и инструменты</b>КОМПАС, MS Visio, работа с нормативной документацией, ГОСТ и учебными требованиями.</article><article class="fact"><b>Образование</b>Высшее образование, художественно-графический профиль.</article></div></div></section>
 

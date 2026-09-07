@@ -6,7 +6,8 @@
   const statusEl = document.getElementById('status');
   const modal = document.getElementById('setupModal');
   const closeModal = document.getElementById('closeModal');
-  const taskImg = document.getElementById('taskImg');
+  const taskVideo = document.getElementById('taskVideo');
+  const taskSkip = document.getElementById('taskSkip');
 
   function digitsOnly(v){ return String(v || '').replace(/\D/g,''); }
   function formatNational(national){
@@ -55,4 +56,67 @@
   });
   closeModal.addEventListener('click',()=>modal.classList.remove('open'));
   modal.addEventListener('click',(e)=>{ if(e.target===modal) modal.classList.remove('open') });
-  document.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => { document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); taskImg.src = btn.dataset.slide === 'solution' ? 'assets/task-solution.png' : 'assets/task-given.png'; }));
+  const taskSources = {
+    given: {
+      video: 'assets/task-given.mp4',
+      poster: 'assets/task-given.png',
+      label: 'Анимация условия задачи'
+    },
+    solution: {
+      video: 'assets/task-solution.mp4',
+      poster: 'assets/task-solution.png',
+      label: 'Анимация решения задачи'
+    }
+  };
+  let activeTaskSlide = 'given';
+
+  function restartTaskVideo(){
+    if (!taskVideo) return;
+    const source = taskSources[activeTaskSlide];
+    taskVideo.pause();
+    if (taskVideo.getAttribute('src') !== source.video) {
+      taskVideo.setAttribute('src', source.video);
+      taskVideo.load();
+    }
+    if (source.poster) taskVideo.setAttribute('poster', source.poster);
+    taskVideo.setAttribute('aria-label', source.label);
+    taskVideo.currentTime = 0;
+    const playWhenReady = () => {
+      const playback = taskVideo.play();
+      if (playback && typeof playback.catch === 'function') playback.catch(() => {});
+    };
+    if (taskVideo.readyState >= 1) {
+      playWhenReady();
+    } else {
+      taskVideo.addEventListener('loadedmetadata', playWhenReady, { once: true });
+    }
+  }
+
+  function skipTaskVideoToEnd(){
+    if (!taskVideo) return;
+    const finish = () => {
+      const duration = Number(taskVideo.duration) || 0;
+      if (!duration) return;
+      taskVideo.currentTime = Math.max(0, duration - 0.05);
+      taskVideo.pause();
+    };
+    if (taskVideo.readyState >= 1) finish();
+    else taskVideo.addEventListener('loadedmetadata', finish, { once: true });
+  }
+
+  function renderTaskMedia(restartVideo = true){
+    if (!taskVideo) return;
+    if (restartVideo) restartTaskVideo();
+  }
+
+  document.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeTaskSlide = btn.dataset.slide === 'solution' ? 'solution' : 'given';
+    renderTaskMedia(true);
+  }));
+
+  if (taskVideo) {
+    renderTaskMedia(true);
+    if (taskSkip) taskSkip.addEventListener('click', skipTaskVideoToEnd);
+  }

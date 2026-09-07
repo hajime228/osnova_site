@@ -129,3 +129,60 @@
   .article-attachment{grid-template-columns:46px 1fr auto;padding:13px}
   .article-attachment-icon{width:46px;height:40px}
 }
+
+/* Theme toggle + featured article */
+@media (max-width:900px){
+  .nav{justify-content:flex-start}
+  .brand{margin-right:auto;max-width:calc(100% - 110px)}
+  .theme-toggle{width:44px;height:44px;flex-basis:44px;margin-left:0}
+  .article-card--featured{grid-template-columns:1fr;min-height:0}
+  .article-card--featured .article-cover{min-height:0;aspect-ratio:16/9}
+  .article-card--featured .article-body{padding:26px}
+  .article-card--featured h3{font-size:31px;letter-spacing:-1px}
+}
+@media (max-width:520px){
+  .brand{max-width:calc(100% - 100px)}
+  .theme-toggle{width:42px;height:42px;flex-basis:42px}
+  .theme-icon{font-size:21px}
+  .article-card--featured .article-body{padding:22px}
+  .article-card--featured h3{font-size:27px;line-height:1.08}
+  .article-card--featured p{font-size:15px}
+}
+
+html[data-theme="dark"] .menu{background:rgba(23,23,22,.985);border-bottom-color:#393734;box-shadow:0 18px 30px rgba(0,0,0,.35)}
+html[data-theme="dark"] .menu-toggle{background:#222220;border-color:#e4e0da}
+html[data-theme="dark"] .menu-toggle span{background:#f5f2ee}
+
+/* Header fit: keep theme switch separate from the phone CTA */
+.topbar .nav{width:min(1380px,calc(100% - 32px))}
+
+@media (max-width:1460px) and (min-width:1241px){
+  .topbar .nav{width:min(1320px,calc(100% - 24px));gap:8px}
+  .topbar .brand{min-width:232px;margin-right:12px;gap:10px}
+  .topbar .brand img{width:44px;height:44px}
+  .topbar .brand span{font-size:22px;transform:scaleX(1.025)}
+  .topbar .menu{gap:6px}
+  .topbar .pill{height:44px;padding:0 13px;font-size:13px}
+  .topbar .pill.phone{padding-inline:16px}
+  .topbar .theme-toggle{width:42px;height:42px;flex-basis:42px;margin-left:0}
+}
+
+@media (max-width:1240px){
+  body{padding-top:72px}
+  .topbar{height:72px}
+  .topbar .nav{height:72px;padding:0;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:10px;width:min(100% - 28px,1280px)}
+  .topbar .brand{min-width:0;margin-right:auto;gap:10px;max-width:calc(100% - 112px)}
+  .topbar .brand img{width:40px;height:40px}
+  .topbar .brand span{font-size:20px;line-height:1;transform:none;overflow:hidden;text-overflow:ellipsis}
+  .topbar .theme-toggle{width:44px;height:44px;flex:0 0 44px;margin-left:0}
+  .topbar .menu-toggle{display:flex;width:44px;height:44px;flex:0 0 44px}
+  .topbar .menu{position:fixed;top:72px;left:0;right:0;width:100%;margin:0;padding:16px 18px 22px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;background:rgba(255,255,255,.98);border-bottom:1px solid var(--line);box-shadow:0 18px 30px rgba(0,0,0,.10);transform:translateY(-130%);opacity:0;pointer-events:none;transition:.25s ease;overflow:visible;z-index:9998}
+  .topbar .menu.open{transform:translateY(0);opacity:1;pointer-events:auto}
+  .topbar .pill{height:50px;width:100%;font-size:14px;padding:0 12px;border-width:1.5px}
+  .topbar .pill.phone{grid-column:1 / -1}
+}
+
+@media (max-width:520px){
+  .topbar .menu{grid-template-columns:1fr}
+  .topbar .pill.phone{grid-column:auto}
+}
