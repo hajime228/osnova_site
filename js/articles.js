@@ -8,6 +8,7 @@
       date: '2026-09-07',
       readTime: '4 мин',
       status: 'Опубликовано',
+      image: 'assets/articles/engineering-drawing.png',
       content: `
         <p><strong>Черчение</strong> — это способ точно показать предмет на плоском листе: его форму, размеры, вид сверху, сбоку, спереди и в разрезе.</p>
         <p><strong>Инженерная графика</strong> — это язык, на котором инженеры, конструкторы, архитекторы и технические специалисты передают друг другу информацию об объектах и конструкциях.</p>
@@ -61,9 +62,14 @@
     if(!url) return '';
     return /^(https?:\/\/|assets\/|\.\/|\/)/i.test(url) ? url : '';
   }
+  function filterRemoteArticles(rows){
+    return (Array.isArray(rows) ? rows : []).filter(article =>
+      String(article && article.title || '').trim() !== 'Название новой статьи'
+    );
+  }
   function mergeArticles(local, remote){
     const merged=new Map();
-    [...local,...remote].forEach(article=>{
+    [...local,...filterRemoteArticles(remote)].forEach(article=>{
       if(article && article.slug) merged.set(article.slug, article);
     });
     return [...merged.values()];
@@ -124,6 +130,6 @@
     const hero=safeUrl(a.image);
     root.innerHTML=`<nav class="article-nav-inline" aria-label="Навигация по статьям"><a href="index.html">← На сайт</a><span aria-hidden="true">·</span><a href="articles.html">Все статьи →</a></nav><header class="article-header"><span class="article-category">${esc(a.category||'Статья')}</span><h1>${esc(a.title)}</h1><div class="article-meta"><span>Фарида Мухамадиева</span><span>${esc(dateRu(a.date))}</span><span>${esc(a.readTime||'')}</span></div></header>${hero?`<div class="article-hero-image"><img src="${esc(hero)}" alt="${esc(a.title||'')}"></div>`:''}<div class="article-content">${a.content||''}</div>${renderGallery(a)}${renderAttachments(a)}<div class="article-cta"><h2>Нужно разобрать учебную задачу?</h2><p>Можно обсудить цель и подобрать подходящий формат занятий.</p><a href="index.html#top">Получить консультацию</a></div>`;
   }
-  window.OsnovaArticles={loadArticles,FALLBACK_ARTICLES};
+  window.OsnovaArticles={loadArticles,FALLBACK_ARTICLES,filterRemoteArticles};
   document.addEventListener('DOMContentLoaded',()=>{initHome();initList();initArticle();});
 })();
